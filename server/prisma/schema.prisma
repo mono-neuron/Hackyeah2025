@@ -1,0 +1,144 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+enum OrganisationType {
+  SCHOOL
+  CULTURAL_CENTER
+  NGO
+  COLLEGE
+  MUNICIPAL_UNIT
+  CULTURAL_INSTITUTION
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id               Int           @id @default(autoincrement())
+  email            String        @unique
+  phone            String        @unique
+  password         String
+  Volunteer        Volunteer?
+  Organisation     Organisation?
+  Chat_first_user  Chat[]        @relation("first_user")
+  Chat_second_user Chat[]        @relation("second_user")
+  Message          Message[]
+  Coordinator      Coordinator[]
+}
+
+model Volunteer {
+  id               Int           @id @default(autoincrement())
+  name             String
+  surname          String
+  street           String
+  city             String
+  zip_code         String
+  house_number     String
+  apartment_number Int?
+  birthdate        DateTime
+  Task             Task[]
+  Opinion          Opinion[]
+  Coordinator      Coordinator?  @relation(fields: [coordinatorId], references: [id])
+  School           Organisation? @relation(fields: [organisationId], references: [id])
+  Account          Account       @relation(fields: [AccountId], references: [id])
+  AccountId        Int           @unique
+  organisationId   Int
+  coordinatorId    Int
+}
+
+model Organisation {
+  id               Int              @id @default(autoincrement())
+  name             String
+  type             OrganisationType
+  street           String
+  city             String
+  zip_code         String
+  building_number  String
+  apartment_number String?
+  phone            String
+  Account          Account          @relation(fields: [AccountId], references: [id])
+  AccountId        Int              @unique
+  Volunteer        Volunteer[]
+  Opinion          Opinion[]
+}
+
+model Coordinator {
+  id        Int         @id @default(autoincrement())
+  name      String
+  surname   String
+  Account   Account     @relation(fields: [accountId], references: [id])
+  Volunteer Volunteer[]
+  Event     Event[]
+  accountId Int
+}
+
+model Event {
+  id               Int          @id @default(autoincrement())
+  name             String
+  description      String
+  street           String
+  city             String
+  zip_code         String
+  building_number  String
+  apartment_number String?
+  start_date       DateTime
+  end_date         DateTime
+  Category         Category     @relation(fields: [categoryId], references: [id])
+  Task             Task[]
+  Coordinator      Coordinator? @relation(fields: [coordinatorId], references: [id])
+  coordinatorId    Int?
+  categoryId       Int
+}
+
+model Task {
+  id          Int        @id @default(autoincrement())
+  name        String
+  Volunteer   Volunteer? @relation(fields: [VolunteerId], references: [id])
+  Event       Event      @relation(fields: [eventId], references: [id])
+  VolunteerId Int?
+  eventId     Int
+}
+
+model Chat {
+  id             Int       @id @default(autoincrement())
+  first_user     Account   @relation(fields: [first_user_id], references: [id], name: "first_user")
+  second_user    Account   @relation(fields: [second_user_id], references: [id], name: "second_user")
+  first_user_id  Int
+  second_user_id Int
+  Message        Message[]
+}
+
+model Message {
+  id        Int     @id @default(autoincrement())
+  content   String
+  Chat      Chat    @relation(fields: [chatId], references: [id])
+  Author    Account @relation(fields: [accountId], references: [id])
+  accountId Int
+  chatId    Int
+}
+
+model Opinion {
+  id             Int          @id @default(autoincrement())
+  content        String
+  Author         Organisation @relation(fields: [organisationId], references: [id])
+  Volunteer      Volunteer    @relation(fields: [volunteerId], references: [id])
+  organisationId Int
+  volunteerId    Int
+}
+
+model Category {
+  id    Int     @id @default(autoincrement())
+  name  String
+  color String?
+  Event Event[]
+}
