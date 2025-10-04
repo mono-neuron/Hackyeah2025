@@ -76,6 +76,7 @@ model Coordinator {
   id        Int         @id @default(autoincrement())
   name      String
   surname   String
+  phone     String
   Account   Account     @relation(fields: [accountId], references: [id])
   Volunteer Volunteer[]
   Event     Event[]
