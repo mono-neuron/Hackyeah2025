@@ -30,10 +30,10 @@ model Account {
   password         String
   Volunteer        Volunteer?
   Organisation     Organisation?
+  Coordinator      Coordinator?
   Chat_first_user  Chat[]        @relation("first_user")
   Chat_second_user Chat[]        @relation("second_user")
   Message          Message[]
-  Coordinator      Coordinator[]
 }
 
 model Volunteer {
@@ -80,7 +80,7 @@ model Coordinator {
   Account   Account     @relation(fields: [accountId], references: [id])
   Volunteer Volunteer[]
   Event     Event[]
-  accountId Int
+  accountId Int         @unique
 }
 
 model Event {
