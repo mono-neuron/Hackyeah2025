@@ -29,6 +29,7 @@ export type GetEventVolunteersRequestHandler = RequestHandler<
 interface TaskPayload {
   name: string;
   estimatedHours: number;
+  eventId: number;
 }
 interface AddEventReqBody {
   name: string;

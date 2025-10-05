@@ -83,12 +83,11 @@ export const addEvent: AddEventRequestHandler = async (req, res, next) => {
       city,
       over18,
       volunteersCount,
-      coordinator,
       organisationId,
       tasks,
     } = req.body;
 
-    const postData = {
+    const eventData = {
       name,
       description,
       start_date: startDate,
@@ -102,14 +101,21 @@ export const addEvent: AddEventRequestHandler = async (req, res, next) => {
       zip_code: zipCode,
       city: city,
       over18: over18,
+      volunteersCount: Number(volunteersCount),
       Organisation: {
-        connect: { id: organisationId },
+        connect: { id: Number(organisationId) },
       },
       position: "",
     };
 
-    await prisma.event.create({
-      data: postData,
+    const event = await prisma.event.create({
+      data: eventData,
+    });
+
+    await tasks.forEach((task) => (task.eventId = event.id));
+
+    prisma.task.createMany({
+      data: tasks,
     });
   } catch (error) {
     next(error);

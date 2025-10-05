@@ -5,7 +5,7 @@ import {
   getVolunteerTasks,
 } from "./volunteer.js";
 import { getCoordinatedEvents } from "./coordinator.js";
-import register from "./auth.js";
+import { registerAccount, loginAccount } from "./auth.js";
 import { getOrganisationInfo } from "./organisation.js";
 
 const EventController = { getEvent, getEvents, getEventVolunteers, addEvent };
@@ -19,7 +19,8 @@ const CoordinatorController = {
 };
 
 const AuthController = {
-  register,
+  registerAccount,
+  loginAccount,
 };
 
 const OrganisationController = {

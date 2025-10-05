@@ -57,6 +57,61 @@ const AuthRouter = Router();
  *       500:
  *         description: Internal server error
  */
-AuthRouter.post("/register", AuthController.register);
+AuthRouter.post("/register", AuthController.registerAccount);
+
+/**
+ * @swagger
+ * /auth/login:
+ *   post:
+ *     summary: Login to an account
+ *     description: Authenticates the user and returns a JWT token.
+ *     tags:
+ *       - Authentication
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - password
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 example: jan.kowalski@example.com
+ *               password:
+ *                 type: string
+ *                 format: password
+ *                 example: securePassword123
+ *     responses:
+ *       200:
+ *         description: Login successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Logged in succesfully!
+ *                 token:
+ *                   type: string
+ *                   example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+ *       400:
+ *         description: Invalid login or password
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Invalid login or password
+ *       500:
+ *         description: Server error
+ */
+AuthRouter.post("/login", AuthController.loginAccount);
 
 export default AuthRouter;

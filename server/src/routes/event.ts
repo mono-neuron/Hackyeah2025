@@ -226,4 +226,110 @@ EventRouter.get("/", EventController.getEvents);
  */
 EventRouter.get("/:eventId/volunteers", EventController.getEventVolunteers);
 
+/**
+ * @swagger
+ * /event/:
+ *   post:
+ *     summary: Create a new event
+ *     description: Creates a new event along with its associated tasks.
+ *     tags:
+ *       - Events
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *               - startDate
+ *               - endDate
+ *               - category
+ *               - street
+ *               - buildingNumber
+ *               - zipCode
+ *               - city
+ *               - over18
+ *               - volunteersCount
+ *               - organisationId
+ *               - tasks
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 example: Community Cleanup
+ *               description:
+ *                 type: string
+ *                 example: Cleaning up the central park area.
+ *               startDate:
+ *                 type: string
+ *                 format: date-time
+ *                 example: 2025-10-15T10:00:00Z
+ *               endDate:
+ *                 type: string
+ *                 format: date-time
+ *                 example: 2025-10-15T14:00:00Z
+ *               category:
+ *                 type: string
+ *                 example: Environment
+ *               street:
+ *                 type: string
+ *                 example: Greenway Blvd
+ *               buildingNumber:
+ *                 type: string
+ *                 example: 123
+ *               apartmentNumber:
+ *                 type: string
+ *                 example: 5A
+ *               zipCode:
+ *                 type: string
+ *                 example: 90210
+ *               city:
+ *                 type: string
+ *                 example: Los Angeles
+ *               over18:
+ *                 type: boolean
+ *                 example: true
+ *               volunteersCount:
+ *                 type: integer
+ *                 example: 10
+ *               organisationId:
+ *                 type: string
+ *                 format: uuid
+ *                 example: d290f1ee-6c54-4b01-90e6-d701748f0851
+ *               tasks:
+ *                 type: array
+ *                 description: List of tasks associated with the event
+ *                 items:
+ *                   type: object
+ *                   required:
+ *                     - name
+ *                   properties:
+ *                     name:
+ *                       type: string
+ *                       example: Set up chairs
+ *                     VolunteerId:
+ *                       type: integer
+ *                       nullable: true
+ *                       example: 5
+ *     responses:
+ *       201:
+ *         description: Event and tasks successfully created
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: integer
+ *                   example: 1
+ *                 name:
+ *                   type: string
+ *                   example: Community Cleanup
+ *       400:
+ *         description: Bad request – missing or invalid fields
+ *       500:
+ *         description: Internal server error
+ */
+EventRouter.post("/", EventController.addEvent);
+
 export default EventRouter;
