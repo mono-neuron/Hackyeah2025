@@ -70,6 +70,7 @@ model Organisation {
   AccountId        Int              @unique
   Volunteer        Volunteer[]
   Opinion          Opinion[]
+  Event            Event[]
 }
 
 model Coordinator {
@@ -92,13 +93,17 @@ model Event {
   zip_code         String
   building_number  String
   apartment_number String?
+  position         String
   start_date       DateTime
   end_date         DateTime
+  over18           Boolean
   Category         Category     @relation(fields: [categoryId], references: [id])
   Task             Task[]
+  Organisation     Organisation @relation(fields: [organisationId], references: [id])
   Coordinator      Coordinator? @relation(fields: [coordinatorId], references: [id])
   coordinatorId    Int?
   categoryId       Int
+  organisationId   Int
 }
 
 model Task {
@@ -139,7 +144,7 @@ model Opinion {
 
 model Category {
   id    Int     @id @default(autoincrement())
-  name  String
+  name  String  @unique
   color String?
   Event Event[]
 }

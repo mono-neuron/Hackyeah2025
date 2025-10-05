@@ -24,3 +24,32 @@ export type GetEventVolunteersRequestHandler = RequestHandler<
   GetEventVolunteersParams,
   MessageResponse | Volunteer[]
 >;
+
+// add event
+interface TaskPayload {
+  name: string;
+  estimatedHours: number;
+}
+interface AddEventReqBody {
+  name: string;
+  description: string;
+  startDate: string;
+  endDate: string;
+  category: string;
+  street: string;
+  buildingNumber: string;
+  apartmentNumber: string;
+  zipCode: string;
+  city: string;
+  over18: boolean;
+  volunteersCount?: number;
+  coordinator?: string;
+  organisationId: number;
+  tasks: TaskPayload[];
+}
+
+export type AddEventRequestHandler = RequestHandler<
+  {},
+  MessageResponse,
+  AddEventReqBody
+>;

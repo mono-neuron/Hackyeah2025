@@ -2,8 +2,10 @@ import express, { json } from "express";
 import { configDotenv } from "dotenv";
 import cors from "cors";
 import {
+  AuthRouter,
   CoordinatorRouter,
   EventRouter,
+  OrganisationRouter,
   VolunteerRouter,
 } from "./routes/index.js";
 import swaggerUi from "swagger-ui-express";
@@ -20,6 +22,8 @@ app.use(json());
 app.use("/event", EventRouter);
 app.use("/volunteer", VolunteerRouter);
 app.use("/coordinator", CoordinatorRouter);
+app.use("/organisation", OrganisationRouter);
+app.use("/auth", AuthRouter);
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(openapiSpecification));
 
 app.listen(PORT, () => {
