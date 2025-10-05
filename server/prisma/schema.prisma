@@ -23,19 +23,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Account {
-  id               Int           @id @default(autoincrement())
-  email            String        @unique
-  phone            String        @unique
-  password         String
-  Volunteer        Volunteer?
-  Organisation     Organisation?
-  Coordinator      Coordinator?
-  Chat_first_user  Chat[]        @relation("first_user")
-  Chat_second_user Chat[]        @relation("second_user")
-  Message          Message[]
-}
-
 model Volunteer {
   id               Int           @id @default(autoincrement())
   name             String
@@ -71,6 +58,19 @@ model Organisation {
   Volunteer        Volunteer[]
   Opinion          Opinion[]
   Event            Event[]
+}
+
+model Account {
+  id               Int           @id @default(autoincrement())
+  email            String        @unique
+  phone            String        @unique
+  password         String
+  Volunteer        Volunteer?
+  Organisation     Organisation?
+  Coordinator      Coordinator?
+  Chat_first_user  Chat[]        @relation("first_user")
+  Chat_second_user Chat[]        @relation("second_user")
+  Message          Message[]
 }
 
 model Coordinator {
