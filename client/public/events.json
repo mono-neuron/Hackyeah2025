@@ -1,0 +1,119 @@
+[
+  {
+    "title": "II Aukcja Charytatywna „Dzieci malują dla dzieci”",
+    "organizer": "Muzeum Historyczne Miasta Krakowa",
+    "description": "Aukcja obrazów stworzonych przez dzieci, z której dochód przeznaczony zostanie na wsparcie domów dziecka w Małopolsce.",
+    "category": "schronisko",
+    "start": "12:10:2025 17:00",
+    "end": "12:10:2025 20:00",
+    "coordinates": { "lat": 50.0625, "lon": 19.9355 }
+  },
+  {
+    "title": "kRAKów POD WŁOS – akcja charytatywna studentów AGH",
+    "organizer": "Studenci AGH / Fundacja Rak’n’Roll",
+    "description": "Studenci AGH organizują strzyżenie włosów na cele charytatywne wspierające osoby w trakcie leczenia onkologicznego.",
+    "category": "test",
+    "start": "18:10:2025 10:00",
+    "end": "18:10:2025 16:00",
+    "coordinates": { "lat": 50.0685, "lon": 19.9145 }
+  },
+  {
+    "title": "Wielki Charytatywny Mecz 72h",
+    "organizer": "organizatorzy lokalni (Kraków)",
+    "description": "Trzydniowy mecz piłkarski, z którego środki zostaną przekazane na pomoc dzieciom z chorobami serca.",
+    "category": "zbiórka",
+    "start": "25:10:2025 08:00",
+    "end": "27:10:2025 20:00",
+    "coordinates": { "lat": 50.065, "lon": 19.926 }
+  },
+  {
+    "title": "32. Finał Wielkiej Orkiestry Świątecznej Pomocy",
+    "organizer": "WOŚP",
+    "description": "Ogólnopolska zbiórka środków na sprzęt medyczny, koncerty i wydarzenia w centrum Krakowa.",
+    "category": "schronisko",
+    "start": "12:01:2025 12:00",
+    "end": "12:01:2025 23:00",
+    "coordinates": { "lat": 50.0595, "lon": 19.943 }
+  },
+  {
+    "title": "Ride For The Living",
+    "organizer": "JCC Kraków",
+    "description": "Wydarzenie rowerowe promujące pamięć historyczną i solidarność społeczną, zebrane środki wspierają lokalne inicjatywy edukacyjne.",
+    "category": "zbiórka",
+    "start": "14:06:2025 09:00",
+    "end": "14:06:2025 17:00",
+    "coordinates": { "lat": 50.057, "lon": 19.931 }
+  },
+  {
+    "title": "KrwioBIEG 2025",
+    "organizer": "organizator lokalny",
+    "description": "Bieg charytatywny zachęcający do oddawania krwi i wspierania banków krwi w Małopolsce.",
+    "category": "schronisko",
+    "start": "20:05:2025 09:00",
+    "end": "20:05:2025 13:00",
+    "coordinates": { "lat": 50.0655, "lon": 19.945 }
+  },
+  {
+    "title": "Bike Convoy for Ukraine – powitanie w Krakowie",
+    "organizer": "organizator lokalny / wolontariusze",
+    "description": "Powitanie uczestników konwoju rowerowego jadącego z pomocą humanitarną dla Ukrainy.",
+    "category": "test",
+    "start": "15:04:2025 15:00",
+    "end": "15:04:2025 18:00",
+    "coordinates": { "lat": 50.063, "lon": 19.939 }
+  },
+  {
+    "title": "Nowe życie dla Nepalu – akcja studentów UJ",
+    "organizer": "Studenci UJ",
+    "description": "Kiermasz i zbiórka funduszy na odbudowę szkół w Nepalu po katastrofach naturalnych.",
+    "category": "pomoc",
+    "start": "22:03:2025 10:00",
+    "end": "22:03:2025 17:00",
+    "coordinates": { "lat": 50.0605, "lon": 19.928 }
+  },
+  {
+    "title": "Uszyj Jasia – akcja charytatywna",
+    "organizer": "organizator lokalny",
+    "description": "Warsztaty szycia pościeli dla szpitali dziecięcych oraz placówek opiekuńczych.",
+    "category": "pomoc",
+    "start": "05:11:2025 11:00",
+    "end": "05:11:2025 15:00",
+    "coordinates": { "lat": 50.067, "lon": 19.936 }
+  },
+  {
+    "title": "Kwiatowa Gala – kiermasz dla zwierząt",
+    "organizer": "schronisko dla bezdomnych zwierząt / organizator lokalny",
+    "description": "Kiermasz kwiatów i roślin, z którego dochód przeznaczony zostanie na opiekę nad bezdomnymi zwierzętami.",
+    "category": "schronisko",
+    "start": "11:05:2025 09:00",
+    "end": "11:05:2025 15:00",
+    "coordinates": { "lat": 50.0715, "lon": 19.955 }
+  },
+  {
+    "title": "SUP Mikołajki vol.6",
+    "organizer": "organizator lokalny",
+    "description": "Mikołajkowe pływanie na deskach SUP po Wiśle – zbiórka na rzecz dzieci z domów dziecka.",
+    "category": "zbiórka",
+    "start": "06:12:2025 10:00",
+    "end": "06:12:2025 13:00",
+    "coordinates": { "lat": 50.034, "lon": 19.945 }
+  },
+  {
+    "title": "Koncert charytatywny “Serenada o wsparcie”",
+    "organizer": "Fundacja Dar Jonasza",
+    "description": "Koncert muzyki klasycznej, z którego dochód zostanie przekazany na leczenie dzieci z chorobami nowotworowymi.",
+    "category": "schronisko",
+    "start": "20:10:2025 19:00",
+    "end": "20:10:2025 21:30",
+    "coordinates": { "lat": 50.049, "lon": 19.956 }
+  },
+  {
+    "title": "BSC Charity Beach Volleyball Tournament – Kraków",
+    "organizer": "BSC / organizator sportowy",
+    "description": "Turniej siatkówki plażowej z wpisowym przeznaczonym na wsparcie domów dziecka w Krakowie.",
+    "category": "pomoc",
+    "start": "02:08:2025 10:00",
+    "end": "02:08:2025 18:00",
+    "coordinates": { "lat": 50.069, "lon": 19.924 }
+  }
+]
